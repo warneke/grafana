@@ -1,6 +1,7 @@
 .pluginlist-section-header {
   margin-bottom: $spacer;
   color: $text-color-weak;
+  font-size: $font-size-h6;
 }
 
 .pluginlist-section {
@@ -20,8 +21,11 @@
 
 .pluginlist-icon {
   vertical-align: sub;
-  font-size: $font-size-h1;
-  margin-right: $spacer / 2;
+  font-size: 1.5rem;
+  margin-right: $spacer / 3;
+  position: relative;
+  top: 2px;
+  display: none;
 }
 
 .pluginlist-image {

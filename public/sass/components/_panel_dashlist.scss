@@ -1,6 +1,3 @@
-.dashlist-item {
-
-}
 
 .dashlist-link {
   display: block;
@@ -13,6 +10,11 @@
   }
   .fa-star {
     color: $orange;
+  }
+
+  .icon-gf-dashboard {
+    color: $text-color-weak;
+    padding-right: 0.2rem;
   }
 
   &:hover {

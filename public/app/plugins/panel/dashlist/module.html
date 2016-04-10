@@ -1,12 +1,34 @@
-<div class="dashlist">
-	<div class="dashlist-item" ng-repeat="dash in ctrl.dashList">
-		<a class="dashlist-link dashlist-link-{{dash.type}}" href="dashboard/{{dash.uri}}">
-			<span class="dashlist-title">
-				{{dash.title}}
-			</span>
-			<span class="dashlist-star">
-				<i class="fa" ng-class="{'fa-star': dash.isStarred, 'fa-star-o': dash.isStarred === false}"></i>
-			</span>
-		</a>
+<div class="pluginlist">
+	<div class="pluginlist-section">
+		<h5 class="pluginlist-section-header">
+			Starred
+		</h5>
+		<div class="dashlist-item" ng-repeat="dash in ctrl.dashList">
+			<a class="dashlist-link dashlist-link-{{dash.type}}" href="dashboard/{{dash.uri}}">
+				<span class="dashlist-title">
+					<i class="icon-gf icon-gf-dashboard"></i>
+					{{dash.title}}
+				</span>
+				<span class="dashlist-star">
+					<i class="fa" ng-class="{'fa-star': dash.isStarred, 'fa-star-o': dash.isStarred === false}"></i>
+				</span>
+			</a>
+		</div>
+	</div>
+	<div class="pluginlist-section">
+		<h5 class="pluginlist-section-header">
+			Recently visited dashboards
+		</h5>
+		<div class="dashlist-item" ng-repeat="dash in ctrl.dashList">
+			<a class="dashlist-link dashlist-link-{{dash.type}}" href="dashboard/{{dash.uri}}">
+				<span class="dashlist-title">
+					<i class="icon-gf icon-gf-dashboard"></i>
+					{{dash.title}}
+				</span>
+				<span class="dashlist-star">
+					<i class="fa" ng-class="{'fa-star': dash.isStarred, 'fa-star-o': dash.isStarred === false}"></i>
+				</span>
+			</a>
+		</div>
 	</div>
 </div>
