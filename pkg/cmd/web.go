@@ -4,6 +4,7 @@
 package cmd
 
 import (
+	"crypto/tls"
 	"fmt"
 	"net/http"
 	"path"
@@ -84,7 +85,10 @@ func StartServer() {
 	case setting.HTTP:
 		err = http.ListenAndServe(listenAddr, m)
 	case setting.HTTPS:
-		err = http.ListenAndServeTLS(listenAddr, setting.CertFile, setting.KeyFile, m)
+		tls := &tls.Config{MinVersion: tls.VersionTLS12, CipherSuites: []uint16{ tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 }}
+		server := &http.Server{Addr: listenAddr, Handler: m, TLSConfig: tls}
+		err = server.ListenAndServeTLS(setting.CertFile, setting.KeyFile) 
+		//err = http.ListenAndServeTLS(listenAddr, setting.CertFile, setting.KeyFile, m)
 	default:
 		log.Fatal(4, "Invalid protocol: %s", setting.Protocol)
 	}
